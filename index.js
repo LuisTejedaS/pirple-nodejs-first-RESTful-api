@@ -23,10 +23,15 @@ var _data =require('./lib/data');
  //   console.log('this was the error', err, 'and this was the data ' + data);
  //   });
 
+//testing
+//_data.update('test', 'newFile', {'fizz':'buzz'}, function(err){
+//console.log('this was the error we', err);
+//});
+
  //testing
-_data.update('test', 'newFile', {'fizz':'buzz'}, function(err){
-console.log('this was the error we', err);
-});
+//_data.delete('test', 'newFile', function(err){
+//console.log('this was the error', err);
+//});
 
 //Instantiating the http server
 var httpServer = http.createServer(function (req, res) {
