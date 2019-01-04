@@ -10,10 +10,11 @@ var http = require('http');
 var https = require('https'); 
 var url = require("url");
 var StringDecoder = require('string_decoder').StringDecoder;
-var config = require('./config');
+var config = require('./lib/config');
 var fs = require("fs");
 var _data =require('./lib/data');
-
+var handlers =require('./lib/handlers');
+var helpers = require('./lib/helpers');
 //testing
 //_data.Create('test', 'newFile', {'foo':'bar'}, function(err){
 //console.log('this was the error', err);
@@ -93,10 +94,10 @@ var unifiedServer = function (req, res) {
         //construct the data objecto to send to the handler
         var data = {
             'trimmedPath': trimmedPath,
-            'queryStrinObject': queryStringObject,
+            'queryStringObject': queryStringObject,
             'method': method,
             'headers': headers,
-            'payload': buffer
+            'payload': helpers.parseJsonToObject(buffer)
         };
 
         //route the request to the handler especified in the router
@@ -133,22 +134,9 @@ var unifiedServer = function (req, res) {
     });
 };
 
-//Define the handlers
-var handlers = {};
-
-//ping hadler
-
-handlers.ping = function (data, callback) {
-    callback(200);
-};
-
-//not found handler
-handlers.notFound = function (data, callback) {
-    callback(404);
-};
-
 //define a request router
 
 var router ={
-    "ping": handlers.ping
+    "ping": handlers.ping,
+    'users' : handlers.users
 };
