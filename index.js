@@ -15,6 +15,11 @@ var fs = require("fs");
 var _data =require('./lib/data');
 var handlers =require('./lib/handlers');
 var helpers = require('./lib/helpers');
+
+//TODO get rid of this
+//helpers.sendTwilioSms('4158375309', 'Hello!', function(err){
+//    console.log('this was the error', err);
+//});
 //testing
 //_data.Create('test', 'newFile', {'foo':'bar'}, function(err){
 //console.log('this was the error', err);
