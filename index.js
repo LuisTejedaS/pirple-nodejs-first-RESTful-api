@@ -15,8 +15,7 @@ var app = {};
 
 app.init = function(){
    server.init();
-
- // workers.init();
+   workers.init();
 };
 
 app.init();
