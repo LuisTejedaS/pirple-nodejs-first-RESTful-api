@@ -1,11 +1,10 @@
-
 /*
  * Primary file for the API
  * 
  * 
  */
 //Dependencies
- 
+
 var server = require('./lib/server');
 var workers = require('./lib/workers');
 
@@ -13,7 +12,7 @@ var app = {};
 
 //init
 
-app.init = function(){
+app.init = function () {
    server.init();
    workers.init();
 };
